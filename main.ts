@@ -22,7 +22,6 @@ input.onButtonPressed(Button.B, function () {
 let power = 0
 let Funcs = 0
 input.compassHeading()
-led.setBrightness(175)
 Funcs = -1
 power = 0
 basic.showLeds(`
@@ -34,6 +33,8 @@ basic.showLeds(`
     `)
 basic.pause(2000)
 basic.clearScreen()
+
+// add function here
 let FuncAll = [
     () => {
         whaleysans.showNumber(input.temperature())
@@ -42,9 +43,9 @@ let FuncAll = [
         let deg = input.compassHeading()
         if (deg < 23 && deg > 0) {
             basic.showArrow(ArrowNames.North)
-        } else if (deg < 68 && deg > 23){
+        } else if (deg < 68 && deg > 23) {
             basic.showArrow(ArrowNames.NorthWest)
-        } else if (deg < 113 && deg > 68 ) {
+        } else if (deg < 113 && deg > 68) {
             basic.showArrow(ArrowNames.West)
         } else if (deg < 158 && deg > 113) {
             basic.showArrow(ArrowNames.SouthWest)
@@ -59,10 +60,12 @@ let FuncAll = [
         } else if (deg < 360 && deg > 338) {
             basic.showArrow(ArrowNames.North)
         }
+    },
+    () => {
+        led.plotBarGraph(input.magneticForce(Dimension.Strength), 170)
     }
 ]
 basic.forever(function () {
-    // add function here
     if (Funcs > 0) {
         FuncAll[Funcs - 1]()
     } else {
@@ -74,4 +77,13 @@ basic.forever(function () {
             . . # . .
             `)
     }
+})
+
+serial.setBaudRate(BaudRate.BaudRate115200)
+
+let bright = 1
+basic.forever(() => {
+    bright = input.lightLevel() / 2
+    led.setBrightness(bright)
+    
 })

@@ -39,7 +39,11 @@ let FuncAll = [
         whaleysans.showNumber(input.temperature())
     },
     ()=>{
-        basic.showNumber(input.compassHeading())
+        if (input.compassHeading() > 99){
+            basic.showNumber(input.compassHeading())
+        } else {
+            whaleysans.showNumber(input.compassHeading())
+        }
     }
     ]
 basic.forever(function () {

@@ -85,5 +85,14 @@ let bright = 1
 basic.forever(() => {
     bright = input.lightLevel() / 2
     led.setBrightness(bright)
+    pause(500)
     
+})
+
+//serial comm
+basic.forever(()=>{
+    let inn = serial.readLine()
+    if(inn == "brightness"){
+        serial.writeLine(`${bright}`)
+    } 
 })

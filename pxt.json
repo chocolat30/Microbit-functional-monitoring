@@ -5,7 +5,8 @@
         "core": "*",
         "radio": "*",
         "microphone": "*",
-        "WhaleySansFont": "github:makecode-extensions/whaleysansfont#v1.1.0"
+        "WhaleySansFont": "github:makecode-extensions/whaleysansfont#v1.1.0",
+        "radio-broadcast": "*"
     },
     "files": [
         "main.blocks",

@@ -1,6 +1,7 @@
 input.onButtonPressed(Button.A, function () {
     if (Funcs != 1 && power == 1) {
         Funcs += -1
+        led.stopAnimation()
         basic.clearScreen()
     }
 })
@@ -16,9 +17,12 @@ input.onButtonPressed(Button.AB, function () {
 input.onButtonPressed(Button.B, function () {
     if (Funcs < FuncAll.length && power == 1) {
         Funcs += 1
+        led.stopAnimation()
         basic.clearScreen()
     }
 })
+
+//start
 let power = 0
 let Funcs = 0
 input.compassHeading()
@@ -62,7 +66,8 @@ let FuncAll = [
         }
     },
     () => {
-        led.plotBarGraph(input.magneticForce(Dimension.Strength), 170)
+        let mf = input.magneticForce(Dimension.Strength)
+        led.plotBarGraph(mf, 255)
     }
 ]
 basic.forever(function () {
@@ -86,13 +91,13 @@ basic.forever(() => {
     bright = input.lightLevel() / 2
     led.setBrightness(bright)
     pause(500)
-    
+
 })
 
 //serial comm
-basic.forever(()=>{
+basic.forever(() => {
     let inn = serial.readLine()
-    if(inn == "brightness"){
+    if (inn == "brightness") {
         serial.writeLine(`${bright}`)
-    } 
+    }
 })

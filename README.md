@@ -1,4 +1,4 @@
-# Microbit : `Monitoring` ~ver0.12~
+# Microbit : `Monitoring` ver0.12
 ## Develops by ***chocolat30***
 
 ### List of Functions 
@@ -6,4 +6,5 @@
 | --- | --- |
 | 1 | Temperature monitoring | 
 | 2 | Compass heading degrees | 
+
 

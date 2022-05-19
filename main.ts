@@ -1,7 +1,6 @@
 input.onButtonPressed(Button.A, function () {
     if (Funcs != 1 && power == 1) {
         Funcs += -1
-        led.stopAnimation()
         basic.clearScreen()
     }
 })
@@ -17,9 +16,20 @@ input.onButtonPressed(Button.AB, function () {
 input.onButtonPressed(Button.B, function () {
     if (Funcs < FuncAll.length && power == 1) {
         Funcs += 1
-        led.stopAnimation()
         basic.clearScreen()
     }
+})
+let cali = 0
+input.onPinPressed(TouchPin.P0,()=>{
+    if(power == 0) {
+        if (cali == 5) {
+            input.calibrateCompass()
+            cali = 0
+        }
+        cali++;
+    }
+    
+    if(cali>5) cali = 0;
 })
 
 //start
@@ -90,7 +100,7 @@ let bright = 1
 basic.forever(() => {
     bright = input.lightLevel() / 2
     led.setBrightness(bright)
-    pause(500)
+    // pause(500) //causing animation error
 
 })
 

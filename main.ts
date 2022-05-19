@@ -20,16 +20,15 @@ input.onButtonPressed(Button.B, function () {
     }
 })
 let cali = 0
-input.onPinPressed(TouchPin.P0,()=>{
-    if(power == 0) {
+input.onPinPressed(TouchPin.P0, () => {
+    if (power == 0) {
         if (cali == 5) {
             input.calibrateCompass()
             cali = 0
         }
         cali++;
     }
-    
-    if(cali>5) cali = 0;
+    if (cali > 5) cali = 0;
 })
 
 //start
@@ -102,12 +101,4 @@ basic.forever(() => {
     led.setBrightness(bright)
     // pause(500) //causing animation error
 
-})
-
-//serial comm
-basic.forever(() => {
-    let inn = serial.readLine()
-    if (inn == "brightness") {
-        serial.writeLine(`${bright}`)
-    }
 })

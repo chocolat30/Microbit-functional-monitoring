@@ -2,6 +2,7 @@ input.onButtonPressed(Button.A, function () {
     if (Funcs != 1 && power == 1) {
         Funcs += -1
         basic.clearScreen()
+        led.stopAnimation()
     }
 })
 input.onButtonPressed(Button.AB, function () {
@@ -17,6 +18,7 @@ input.onButtonPressed(Button.B, function () {
     if (Funcs < FuncAll.length && power == 1) {
         Funcs += 1
         basic.clearScreen()
+        led.stopAnimation()
     }
 })
 let cali = 0
@@ -78,6 +80,15 @@ let FuncAll = [
     () => {
         let mf = input.magneticForce(Dimension.Strength)
         led.plotBarGraph(mf, 255)
+    },
+    () => {
+        let toTime = (numSecs: number) => {
+            let h = Math.floor(numSecs / 3600)
+            let m = Math.floor((numSecs - (h*3600)) / 60)
+            let s = (numSecs - (h*3600) - (m*60))
+            return `${h}:${m}:${s}`
+        }
+        basic.showString(toTime(timeanddate.secondsSinceReset()))
     }
 ]
 basic.forever(function () {

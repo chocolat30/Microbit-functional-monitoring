@@ -4,9 +4,9 @@
     "dependencies": {
         "core": "*",
         "radio": "*",
-        "microphone": "*",
         "WhaleySansFont": "github:makecode-extensions/whaleysansfont#v1.1.0",
-        "radio-broadcast": "*"
+        "radio-broadcast": "*",
+        "microbit-pxt-timeanddate": "github:bsiever/microbit-pxt-timeanddate#v2.0.33"
     },
     "files": [
         "main.blocks",
@@ -17,7 +17,7 @@
         "test.ts"
     ],
     "targetVersions": {
-        "target": "4.0.18",
+        "target": "5.0.12",
         "targetId": "microbit"
     },
     "supportedTargets": [

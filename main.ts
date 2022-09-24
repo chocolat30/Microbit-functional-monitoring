@@ -6,6 +6,8 @@ input.onButtonPressed(Button.A, function () {
     }
 })
 input.onButtonPressed(Button.AB, function () {
+    basic.clearScreen()
+    led.stopAnimation()
     if (power == 0) {
         power = 1
         Funcs = 1
@@ -115,10 +117,3 @@ basic.forever(() => {
 
 })
 
-//serial comm
-basic.forever(() => {
-    let inn = serial.readLine()
-    if (inn == "brightness") {
-        serial.writeLine(`${bright}`)
-    }
-})

@@ -1,4 +1,4 @@
-# Microbit : `Monitoring` ver0.13
+# Microbit : `Monitoring` ver0.15
 ## Develops by ***chocolat30***
 
 ### List of Functions 
@@ -8,4 +8,5 @@
 | 2 | Compass heading degrees | 
 | 3 | Megnetic strength graph |
 | 4 | Uptime |
+| 5 | Light level |
 

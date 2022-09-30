@@ -54,9 +54,10 @@ basic.clearScreen()
 
 // add function here
 let FuncAll = [
-    () => {
+    () => {    
         whaleysans.showNumber(input.temperature())
     },
+
     () => {
         let deg = input.compassHeading()
         if (deg < 23 && deg > 0) {
@@ -79,10 +80,12 @@ let FuncAll = [
             basic.showArrow(ArrowNames.North)
         }
     },
+
     () => {
         let mf = input.magneticForce(Dimension.Strength)
         led.plotBarGraph(mf, 255)
     },
+
     () => {
         let toTime = (numSecs: number) => {
             let h = Math.floor(numSecs / 3600)
@@ -91,6 +94,10 @@ let FuncAll = [
             return `${h}:${m}:${s}`
         }
         basic.showString(toTime(timeanddate.secondsSinceReset()))
+    },
+
+    () => {
+        basic.showNumber(input.lightLevel())
     }
 ]
 basic.forever(function () {
@@ -114,4 +121,3 @@ basic.forever(() => {
     // pause(500) //causing animation error
 
 })
-

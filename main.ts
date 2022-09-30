@@ -107,12 +107,10 @@ basic.forever(function () {
     }
 })
 
-serial.setBaudRate(BaudRate.BaudRate115200)
-
 let bright = 1
 basic.forever(() => {
-    bright = input.lightLevel() / 2
-    led.setBrightness(bright)
+    bright = Math.floor(input.lightLevel() / 2)+10
+    led.setBrightness(bright<1 ? bright+10 : bright)
     // pause(500) //causing animation error
 
 })

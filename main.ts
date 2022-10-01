@@ -35,6 +35,13 @@ input.onPinPressed(TouchPin.P0,()=>{
     
     if(cali>5) cali = 0;
 })
+//send data to serial port
+input.onPinPressed(TouchPin.P1, ()=>{
+    serial.writeValue("temp", input.temperature())
+    serial.writeValue("magn", input.magneticForce(Dimension.Strength))
+    serial.writeValue("light", input.lightLevel())
+    serial.writeLine("-------------")
+})
 
 //start
 let power = 0
@@ -110,7 +117,7 @@ basic.forever(function () {
             . . . . .
             # # . # #
             . . # . .
-            `)
+        `)
     }
 })
 
